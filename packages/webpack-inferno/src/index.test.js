@@ -33,7 +33,7 @@ function compile(rules) {
   })
 }
 
-describe('webpack loader', () => {
+describe('webpack-inferno loader', () => {
   it('should convert file', async () => {
     const source = await compile([
       {
@@ -88,6 +88,43 @@ describe('webpack loader', () => {
             options: {
               babel: false,
               expandProps: false,
+            },
+          },
+        ],
+      },
+    ])
+
+    expect(source).toMatchSnapshot()
+  }, 15000)
+
+  it('should convert file for Inferno', async () => {
+    const source = await compile([
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: path.resolve(__dirname, './index.js'),
+            options: {
+              expandProps: false,
+              jsx: 'inferno'
+            },
+          },
+        ],
+      },
+    ])
+
+    expect(source).toMatchSnapshot()
+  }, 15000)
+
+  it('should convert file for Inferno with props', async () => {
+    const source = await compile([
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: path.resolve(__dirname, './index.js'),
+            options: {
+              jsx: 'inferno'
             },
           },
         ],

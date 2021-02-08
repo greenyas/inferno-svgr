@@ -16,7 +16,7 @@ const getCode = (bundler) =>
       id.includes('__fixtures__\\simple\\file.svg'),
   ).code
 
-describe('rollup loader', () => {
+describe('rollup loader InfernoJS', () => {
   it('should convert file', async () => {
     const code = await compile([svgr()])
     expect(getCode(code)).toMatchSnapshot()
@@ -34,6 +34,18 @@ describe('rollup loader', () => {
 
   it('should convert file with previousExport of url plugin', async () => {
     const code = await compile([url(), svgr({ babel: false })])
+    expect(getCode(code)).toMatchSnapshot()
+  })
+});
+
+describe('rollup loader for InfernoJs', () => {
+  it('should convert file', async () => {
+    const code = await compile([svgr({useInfernoJsMode: true})])
+    expect(getCode(code)).toMatchSnapshot()
+  })
+
+  it('should convert file without babel', async () => {
+    const code = await compile([svgr({ babel: false, useInfernoJsMode: true})])
     expect(getCode(code)).toMatchSnapshot()
   })
 });

@@ -171,7 +171,7 @@ export const getInterface = ({ types: t }, opts) => {
 }
 
 export const getImport = ({ types: t }, opts) => {
-  if (opts.useInfernoJsMode) {
+  if (opts.jsx === 'inferno') {
     return '';
   }
   const importDeclarations = [

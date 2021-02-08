@@ -4,7 +4,6 @@ import { createFilter } from 'rollup-pluginutils'
 import { transformAsync, createConfigItem } from '@babel/core'
 import svgo from '@svgr/plugin-svgo'
 import jsx from '@svgr/plugin-jsx'
-import presetReact from '@babel/preset-react'
 import presetEnv from '@babel/preset-env'
 import pluginTransformReactConstantElements from '@babel/plugin-transform-react-constant-elements'
 import babelPluginInferno from 'babel-plugin-inferno'
@@ -13,15 +12,19 @@ const babelOptions = {
   babelrc: false,
   configFile: false,
   presets: [
-    createConfigItem(presetReact, { type: 'preset' }),
     createConfigItem([presetEnv, { modules: false }], { type: 'preset' }),
   ],
-  plugins: [createConfigItem(pluginTransformReactConstantElements)],
+  plugins: [
+    createConfigItem(pluginTransformReactConstantElements),
+    [babelPluginInferno, { 'imports': true }],
+  ]
 }
 
 function svgrPlugin(options = {}) {
   const filter = createFilter(options.include || '**/*.svg', options.exclude)
   const { babel = true } = options
+
+  options.jsx = 'inferno';
 
   return {
     name: 'svgr',

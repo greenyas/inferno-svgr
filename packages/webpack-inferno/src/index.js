@@ -3,7 +3,7 @@ import { transformAsync, createConfigItem } from '@babel/core'
 import convert from '@svgr/core'
 import svgo from '@svgr/plugin-svgo'
 import jsx from '@svgr/plugin-jsx'
-import presetReact from '@babel/preset-react'
+import babelPluginInferno from 'babel-plugin-inferno'
 import presetEnv from '@babel/preset-env'
 import pluginTransformReactConstantElements from '@babel/plugin-transform-react-constant-elements'
 
@@ -11,15 +11,19 @@ const babelOptions = {
   babelrc: false,
   configFile: false,
   presets: [
-    createConfigItem(presetReact, { type: 'preset' }),
     createConfigItem([presetEnv, { modules: false }], { type: 'preset' }),
   ],
-  plugins: [createConfigItem(pluginTransformReactConstantElements)],
+  plugins: [
+    createConfigItem(pluginTransformReactConstantElements),
+    [babelPluginInferno, { 'imports': true }]
+  ]
 }
 
 function svgrLoader(source) {
   const callback = this.async()
   const { babel = true, ...options } = getOptions(this) || {}
+
+  options.jsx = 'inferno';
 
   const readSvg = () =>
     new Promise((resolve, reject) => {
