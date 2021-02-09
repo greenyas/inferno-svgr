@@ -7,7 +7,6 @@ import jsx from '@svgr/plugin-jsx'
 import presetReact from '@babel/preset-react'
 import presetEnv from '@babel/preset-env'
 import pluginTransformReactConstantElements from '@babel/plugin-transform-react-constant-elements'
-import babelPluginInferno from 'babel-plugin-inferno'
 
 const babelOptions = {
   babelrc: false,

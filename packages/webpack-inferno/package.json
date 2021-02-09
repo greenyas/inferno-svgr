@@ -1,9 +1,9 @@
 {
-  "name": "@svgr/webpack-inferno",
+  "name": "svgr-webpack-inferno",
   "description": "SVGR webpack loader for InfernoJS.",
   "version": "0.0.1",
   "main": "lib/index.js",
-  "repository": "https://github.com/gregberge/svgr/tree/master/packages/webpack",
+  "repository": "https://github.com/greenyas/inferno-svgr/tree/master/packages/webpack-inferno",
   "author": "Greg Bergé <berge.greg@gmail.com> & Grigori Savustjan <greenya.s@gmail.com>",
   "publishConfig": {
     "access": "public"

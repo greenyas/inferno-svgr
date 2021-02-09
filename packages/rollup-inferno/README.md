@@ -1,13 +1,15 @@
-# @svgr/rollup
+# @svgr/rollup-inferno
 
-[![Build Status](https://img.shields.io/travis/smooth-code/svgr.svg)](https://travis-ci.org/smooth-code/svgr)
-[![Version](https://img.shields.io/npm/v/@svgr/rollup.svg)](https://www.npmjs.com/package/@svgr/rollup)
-[![MIT License](https://img.shields.io/npm/l/@svgr/rollup.svg)](https://github.com/smooth-code/svgr/blob/master/LICENSE)
+[comment]: <> ([![Build Status]&#40;https://img.shields.io/travis/smooth-code/svgr.svg&#41;]&#40;https://travis-ci.org/smooth-code/svgr&#41;)
 
-Rollup plugin for SVGR.
+[comment]: <> ([![Version]&#40;https://img.shields.io/npm/v/@svgr/rollup.svg&#41;]&#40;https://www.npmjs.com/package/@svgr/rollup&#41;)
+
+[comment]: <> ([![MIT License]&#40;https://img.shields.io/npm/l/@svgr/rollup.svg&#41;]&#40;https://github.com/smooth-code/svgr/blob/master/LICENSE&#41;)
+
+Rollup-inferno plugin for SVGR.
 
 ```
-npm install @svgr/rollup --save-dev
+npm install @svgr/rollup-inferno --save-dev
 ```
 
 In your `rollup.config.js`:
@@ -35,15 +37,6 @@ const App = () => (
 ```js
 {
   plugins: [svgr({ native: true })]
-}
-```
-
-### InfernoJS support
-By supplying the following option SVGR plugin can be used with InfernoJS framework:
-
-```js
-{
-  plugins: [svgr({ useInfernoJsMode: true })]
 }
 ```
 

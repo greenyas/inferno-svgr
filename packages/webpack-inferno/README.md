@@ -1,13 +1,15 @@
-# @svgr/webpack
+# @svgr/webpack-inferno
 
-[![Build Status](https://img.shields.io/travis/gregberge/svgr.svg)](https://travis-ci.org/gregberge/svgr)
-[![Version](https://img.shields.io/npm/v/@svgr/webpack.svg)](https://www.npmjs.com/package/@svgr/webpack)
-[![MIT License](https://img.shields.io/npm/l/@svgr/webpack.svg)](https://github.com/gregberge/svgr/blob/master/LICENSE)
+[comment]: <> ([![Build Status]&#40;https://img.shields.io/travis/gregberge/svgr.svg&#41;]&#40;https://travis-ci.org/gregberge/svgr&#41;)
 
-Webpack loader for SVGR.
+[comment]: <> ([![Version]&#40;https://img.shields.io/npm/v/@svgr/webpack.svg&#41;]&#40;https://www.npmjs.com/package/@svgr/webpack&#41;)
+
+[comment]: <> ([![MIT License]&#40;https://img.shields.io/npm/l/@svgr/webpack.svg&#41;]&#40;https://github.com/gregberge/svgr/blob/master/LICENSE&#41;)
+
+Webpack-inferno loader for SVGR.
 
 ```
-npm install @svgr/webpack --save-dev
+npm install @svgr/webpack-inferno --save-dev
 ```
 
 ## Usage
@@ -17,7 +19,7 @@ In your `webpack.config.js`:
 ```js
 {
   test: /\.svg$/,
-  use: ['@svgr/webpack'],
+  use: ['@svgr/webpack-inferno']
 }
 ```
 
@@ -40,21 +42,12 @@ const App = () => (
   test: /\.svg$/,
   use: [
     {
-      loader: '@svgr/webpack',
+      loader: '@svgr/webpack-inferno',
       options: {
         native: true,
       },
     },
   ],
-}
-```
-
-### InfernoJS support
-By supplying the following option SVGR plugin can be used with InfernoJS framework:
-
-```js
-options {
-  useInfernoJsMode: true
 }
 ```
 
@@ -67,7 +60,7 @@ In your `webpack.config.js`:
 ```js
 {
   test: /\.svg$/,
-  use: ['@svgr/webpack', 'url-loader'],
+  use: ['@svgr/webpack-inferno', 'url-loader']
 }
 ```
 
@@ -88,7 +81,7 @@ The named export defaults to `ReactComponent`, but can be customized with the `n
 
 ### Use your own Babel configuration
 
-By default, `@svgr/webpack` includes a `babel-loader` with [an optimized configuration](https://github.com/gregberge/svgr/blob/master/packages/webpack/src/index.js). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
+By default, `@svgr/webpack-inferno` includes a `babel-loader` with [an optimized configuration](https://github.com/gregberge/svgr/blob/master/packages/webpack/src/index.js). In some case you may want to apply a custom one (if you are using Preact for an example). You can turn off Babel transformation by specifying `babel: false` in options.
 
 ```js
 // Example using preact
@@ -102,10 +95,10 @@ By default, `@svgr/webpack` includes a `babel-loader` with [an optimized configu
       },
     },
     {
-      loader: '@svgr/webpack',
+      loader: '@svgr/webpack-inferno',
       options: { babel: false },
     }
-  ],
+  ]
 }
 ```
 
@@ -120,7 +113,7 @@ It is possible to detect the module that requires your SVG using [`Rule.issuer`]
     issuer: {
       test: /\.jsx?$/
     },
-    use: ['babel-loader', '@svgr/webpack', 'url-loader']
+    use: ['babel-loader', '@svgr/webpack-inferno', 'url-loader']
   },
   {
     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,

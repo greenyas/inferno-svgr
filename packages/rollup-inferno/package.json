@@ -1,9 +1,9 @@
 {
-  "name": "@svgr/rollup-inferno",
+  "name": "svgr-rollup-inferno",
   "description": "SVGR Rollup plugin.",
   "version": "0.0.1",
   "main": "lib/index.js",
-  "repository": "https://github.com/gregberge/svgr/tree/master/packages/rollup",
+  "repository": "https://github.com/greenyas/inferno-svgr/tree/master/packages/rollup-inferno",
   "author": "Greg Bergé <berge.greg@gmail.com> & Grigori Savustjan <greenya.s@gmail.com>",
   "publishConfig": {
     "access": "public"

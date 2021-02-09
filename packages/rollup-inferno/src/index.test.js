@@ -1,9 +1,9 @@
 import { rollup } from 'rollup'
 import image from 'rollup-plugin-image'
 import url from 'rollup-plugin-url'
-import svgr from './index'
+import svgrRollupInferno from './index'
 
-const compile = (plugins = [svgr()]) =>
+const compile = (plugins = [svgrRollupInferno()]) =>
   rollup({
     input: './__fixtures__/simple/file.svg',
     plugins,
@@ -18,34 +18,22 @@ const getCode = (bundler) =>
 
 describe('rollup loader InfernoJS', () => {
   it('should convert file', async () => {
-    const code = await compile([svgr()])
+    const code = await compile([svgrRollupInferno()])
     expect(getCode(code)).toMatchSnapshot()
   })
 
   it('should convert file without babel', async () => {
-    const code = await compile([svgr({ babel: false })])
+    const code = await compile([svgrRollupInferno({ babel: false })])
     expect(getCode(code)).toMatchSnapshot()
   })
 
   it('should convert file with previousExport of image plugin', async () => {
-    const code = await compile([image(), svgr({ babel: false })])
+    const code = await compile([image(), svgrRollupInferno({ babel: false })])
     expect(getCode(code)).toMatchSnapshot()
   })
 
   it('should convert file with previousExport of url plugin', async () => {
-    const code = await compile([url(), svgr({ babel: false })])
-    expect(getCode(code)).toMatchSnapshot()
-  })
-});
-
-describe('rollup loader for InfernoJs', () => {
-  it('should convert file', async () => {
-    const code = await compile([svgr({useInfernoJsMode: true})])
-    expect(getCode(code)).toMatchSnapshot()
-  })
-
-  it('should convert file without babel', async () => {
-    const code = await compile([svgr({ babel: false, useInfernoJsMode: true})])
+    const code = await compile([url(), svgrRollupInferno({ babel: false })])
     expect(getCode(code)).toMatchSnapshot()
   })
 });
